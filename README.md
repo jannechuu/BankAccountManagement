@@ -1,3 +1,3 @@
 # BankAccountManagement
 
-BankAccountManagement/Bank-Application/src/main/java/Bank/
+Infelizmente nao consegui conectar ao banco :(
