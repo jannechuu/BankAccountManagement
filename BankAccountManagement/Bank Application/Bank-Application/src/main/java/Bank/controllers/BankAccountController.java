@@ -22,7 +22,8 @@ public class BankAccountController {
 
     @Autowired
     private BankAccountService service; 
-       
+    
+    @PutMapping("/balances")
     public ResponseEntity<BankAccount> balance(@RequestParam(value = "document", required = true) String document,
                                                 @RequestParam(value = "password", required = true) String password,
                                                 @RequestParam(value = "branch", required = true) String branch,
@@ -35,6 +36,7 @@ public class BankAccountController {
                 return new ResponseEntity(bankAccount, HttpStatus.BAD_REQUEST); 		
     }
     
+    @PutMapping("/deposits")
     public ResponseEntity<?> deposit(@RequestParam(value = "branch", required = true) String branch,
                                        @RequestParam(value = "account", required = true) String account,
                                        @RequestParam(value = "bank-code", required = true) String bankCode,
@@ -48,7 +50,7 @@ public class BankAccountController {
     }
         
       
-    
+    @PutMapping("/withdraws")
     public ResponseEntity<BankAccountPresenter> withdraw(@RequestParam(value = "branch", required = true) String branch,
                                        @RequestParam(value = "account", required = true) String account,
                                        @RequestParam(value = "document", required = true) String document,
@@ -62,7 +64,7 @@ public class BankAccountController {
     }
 
     
-       @PutMapping
+    @PutMapping("/transfers")
     public ResponseEntity<BankAccountPresenter> transfer(@RequestBody BankAccount source,
                                                         @RequestParam(value = "branch", required = true) String branch,
                                                         @RequestParam(value = "account", required = true) String account,
